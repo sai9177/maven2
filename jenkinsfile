@@ -14,15 +14,16 @@ pipeline
         {
             steps
             {
-               sh label: '', script: 'mvn package'
+                sh label: '', script: 'mvn package'
             }
         }
-	 stage('ContinuousDeployment')
+        stage('ContinuousDeployment')
         {
             steps
             {
                 sh label: '', script: 'scp /home/ubuntu/.jenkins/workspace/DeclarativePipeline/webapp/target/webapp.war ubuntu@172.31.31.15:/var/lib/tomcat8/webapps/testwebapp.war'
             }
         }
-     }
-}     
+      }
+
+ }     
